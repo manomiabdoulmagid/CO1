@@ -1,23 +1,12 @@
 #!/bin/bash
 
-# Vérifier le nombre d'arguments
-if [ $# -ne 2 ]; then
-    echo "Usage: $0 <fichier> <chaine_a_rechercher>"
-    exit 1
-fi
+# Ce code permet de Chercher une chaîne dans un fichier
 
-fichier="$1"
-chaine="$2"
+read -p "Entrez le nom du fichier :" filename
+read -p "Entrez le nom du chaine à chercher :" search
 
-# Vérifier si le fichier existe
-if [ ! -f "$fichier" ]; then
-    echo "Erreur: Le fichier '$fichier' n'existe pas."
-    exit 1
-fi
-
-# Rechercher la chaîne avec grep
-if grep -q "$chaine" "$fichier"; then
-    echo "La chaîne '$chaine' a été trouvée dans $fichier."
-else
-    echo "La chaîne '$chaine' n'a pas été trouvée dans $fichier."
+if grep -n "$search" "$filename"; then 
+echo "La chaîne '$search' a été trouvée dans $filename." 
+else 
+echo "La chaîne '$search' n'a pas été trouvée dans $filename." 
 fi

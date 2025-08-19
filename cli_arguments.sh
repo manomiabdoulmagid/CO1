@@ -1,16 +1,9 @@
 #!/bin/bash
+# Ce script affiche chaque argument passé en ligne de commande, un par ligne.
 
-# Vérifier qu'il y a au moins un argument
-if [ $# -eq 0 ]; then
-    echo "Usage: $0 <argument1> <argument2> ..."
-    exit 1
-fi
-
-# Initialiser le compteur
-count=1
-
-# Parcourir tous les arguments
-for arg in "$@"; do
-    echo "Argument $count: $arg"
-    ((count++))
-done
+read -a "args" 
+i=1 
+for arg in "${args[@]}"; do 
+    echo "Argument $i: $arg" 
+    ((i++)) 
+done 
